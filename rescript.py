@@ -10,16 +10,42 @@ import re
 #match = re.search(r'\d\d\d', 'p1k234g')  # Match 3 digits
 #match = re.search(r'\d\d\d', 'p1k234g')  # Match 3 digits
 #match = re.search(r'\w\w\w', '@@abcd!!')  # Match 3 words
+
+#############
+# Repetitions
+#############
+
 #match = re.search(r'pi+', 'piiig')  # Match 'p' followed by any number of 'i's
 #match = re.search(r'i+', 'piigiiii')  # Match any number of 'i's
 #match = re.search(r'\d\s*\d\s*\d', 'xx1 2   3xx')  # Match 3 digits seperated by any number of white spaces
 #match = re.search(r'\d\s*\d\s*\d', 'xx12  3xx')  # Match 3 digits seperated by any number of white spaces
 #match = re.search(r'\d\s*\d\s*\d', 'xx123xx')  # Match 3 digits seperated by any number of white spaces
 #match = re.search(r'^b\w+', 'foobar')  # Match 'b' followed by any number of words at beginning of line
-match = re.search(r'b\w+', 'foobar')  # Match 'b' followed by any number of words
+#match = re.search(r'b\w+', 'foobar')  # Match 'b' followed by any number of words
+
+################
+# Emails Example
+################
+
+#str = 'purple alice-b@google.com monkey dishwasher'
+#match = re.search(r'\w+@\w+', str)
+
+#################
+# Square Brackets
+#################
+
+str = 'purple alice-b@google.com monkey dishwasher'
+match = re.search(r'[\w.-]+@[\w.-]+', str)
+
+##################
+# Group extraction
+##################
+
+str = 'purple alice-b@google.com monkey dishwasher'
+match = re.search(r'([\w.-]+)@([\w.-]+)', str)
 
 # If-statement after search() tests if it succeeded
 if match:
-    print 'found', match.group() ## 'found word:cat'
+    print 'found', match.group()
 else:
     print 'did not find'
